@@ -47,4 +47,13 @@ public class AuthService {
         return new AuthResponse(token);
     }
 
+    public String deleteUser(Long id) {
+        if (!repository.existsById(id)) {
+            return "User not found";
+        }
+
+        repository.deleteById(id);
+        return "User deleted successfully";
+    }
+
 }
